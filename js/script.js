@@ -63,7 +63,47 @@ let jugadaJugador = 0;
 // Funciones
 
 // Eventos
+
+
+const barajarCartas = () =>{
+
+  let aux = "";
+  for(let i = 0; i < cartas.length; i++){
+
+    let posicion1 = Math.floor(Math.random()*cartas.length);
+    let posicion2 = Math.floor(Math.random()*cartas.length);
+
+    aux = cartas[posicion1];
+
+    cartas[posicion1] = cartas[posicion2];
+    cartas[posicion2] = aux;
+
+  }
+  
+  console.log(cartas)
+
+}
+
 document.addEventListener("DOMContentLoaded", barajarCartas);
+
+
+const pedirCarta = (event) =>{
+
+
+
+}
+
 pedir.addEventListener("click", pedirCarta);
+
+const finJugador = (event) =>{
+
+
+}
+
 plantarse.addEventListener("click", finJugador);
+
+const reiniciarJuego = () =>{
+
+
+}
 nueva_partida.addEventListener("click", reiniciarJuego);
