@@ -79,17 +79,41 @@ const barajarCartas = () =>{
     cartas[posicion2] = aux;
 
   }
-  
-  console.log(cartas)
 
 }
 
 document.addEventListener("DOMContentLoaded", barajarCartas);
 
+let contador = 0.0;
 
 const pedirCarta = (event) =>{
 
+  
+  let element = event.target;
+  let posicion = Math.floor(Math.random()*cartas.length);
 
+  let imagen = document.createElement("IMG");
+  imagen.src = "./imagenes/"+cartas[posicion];
+  jugador_visor.appendChild(imagen);
+
+  let numero = parseFloat(cartas[posicion].substring(0,2));
+
+  if(contador <= 7.5){
+    if(numero >= 1 && numero <=7){
+
+      contador += numero;
+
+    }else if(numero >= 10 && numero <= 12){
+
+      contador += 0.5;
+    }
+    jugador_titulo.textContent = contador;
+    cartas.splice(posicion,1);
+  }else{
+
+    finJugador();
+
+  }
 
 }
 
@@ -97,6 +121,17 @@ pedir.addEventListener("click", pedirCarta);
 
 const finJugador = (event) =>{
 
+  let cartasAle = Math.floor(Math.random()*cartas.length);
+
+  
+  /* do{
+
+    let imagen = document.createElement("IMG");
+    imagen.src = "./imagenes/"+cartas[cartasAle];
+    maquina_visor.appendChild(imagen);
+    
+  }while() */
+  
 
 }
 
